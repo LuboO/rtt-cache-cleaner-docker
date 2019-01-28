@@ -7,7 +7,9 @@ LABEL project="https://github.com/crocs-muni/randomness-testing-toolkit"
 
 COPY cache_cleaner.py /
 
-VOLUME ["/rtt_experiment_files"]
+ENV RTT_CACHE_CLEANER_EXPERIMENT_FILES_DIR=/rtt_experiment_files
+
+VOLUME ["$RTT_CACHE_CLEANER_EXPERIMENT_FILES_DIR"]
 
 CMD ["python3", "/cache_cleaner.py"] 
 
